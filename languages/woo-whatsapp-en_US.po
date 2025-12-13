@@ -1,0 +1,468 @@
+# Woo WhatsApp Bildirimcisi - English Translation
+# Copyright (C) 2024
+# This file is distributed under the same license as the Woo WhatsApp plugin.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Woo WhatsApp Bildirimcisi 2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: woo-whatsapp.php
+msgid "Woo WhatsApp Bildirimcisi"
+msgstr "Woo WhatsApp Notifications"
+
+#: woo-whatsapp.php
+msgid "eklentisi çalışmak için WooCommerce gerektirir. Lütfen WooCommerce'i yükleyin ve etkinleştirin."
+msgstr "plugin requires WooCommerce to work. Please install and activate WooCommerce."
+
+#: includes/class-wwa-settings.php
+msgid "Müşteri adı"
+msgstr "Customer first name"
+
+#: includes/class-wwa-settings.php
+msgid "Müşteri soyadı"
+msgstr "Customer last name"
+
+#: includes/class-wwa-settings.php
+msgid "Müşteri tam adı"
+msgstr "Customer full name"
+
+#: includes/class-wwa-settings.php
+msgid "Müşteri e-posta"
+msgstr "Customer email"
+
+#: includes/class-wwa-settings.php
+msgid "Müşteri telefonu"
+msgstr "Customer phone"
+
+#: includes/class-wwa-settings.php
+msgid "Sipariş numarası"
+msgstr "Order number"
+
+#: includes/class-wwa-settings.php
+msgid "Sipariş tarihi"
+msgstr "Order date"
+
+#: includes/class-wwa-settings.php
+msgid "Sipariş durumu"
+msgstr "Order status"
+
+#: includes/class-wwa-settings.php
+msgid "Ödeme yöntemi"
+msgstr "Payment method"
+
+#: includes/class-wwa-settings.php
+msgid "Müşteri notu"
+msgstr "Customer note"
+
+#: includes/class-wwa-settings.php
+msgid "Ara toplam"
+msgstr "Subtotal"
+
+#: includes/class-wwa-settings.php
+msgid "Kargo ücreti"
+msgstr "Shipping cost"
+
+#: includes/class-wwa-settings.php
+msgid "İndirim tutarı"
+msgstr "Discount amount"
+
+#: includes/class-wwa-settings.php
+msgid "Vergi tutarı"
+msgstr "Tax amount"
+
+#: includes/class-wwa-settings.php
+msgid "Toplam tutar"
+msgstr "Total amount"
+
+#: includes/class-wwa-settings.php
+msgid "Ürün listesi"
+msgstr "Product list"
+
+#: includes/class-wwa-settings.php
+msgid "Toplam ürün sayısı"
+msgstr "Total product count"
+
+#: includes/class-wwa-settings.php
+msgid "İlk ürün adı"
+msgstr "First product name"
+
+#: includes/class-wwa-settings.php
+msgid "Kargo firması"
+msgstr "Shipping company"
+
+#: includes/class-wwa-settings.php
+msgid "Kargo takip numarası"
+msgstr "Tracking number"
+
+#: includes/class-wwa-settings.php
+msgid "Teslimat adresi"
+msgstr "Shipping address"
+
+#: includes/class-wwa-settings.php
+msgid "Fatura adresi"
+msgstr "Billing address"
+
+#: includes/class-wwa-settings.php
+msgid "Mağaza adı"
+msgstr "Store name"
+
+#: includes/class-wwa-settings.php
+msgid "Mağaza URL"
+msgstr "Store URL"
+
+#: includes/class-wwa-settings.php
+msgid "Sipariş detay URL"
+msgstr "Order detail URL"
+
+#: includes/class-wwa-settings.php
+msgid "Kargoya Verildi"
+msgstr "Shipped"
+
+#: includes/class-wwa-api-handler.php
+msgid "Geçersiz telefon numarası"
+msgstr "Invalid phone number"
+
+#: includes/class-wwa-api-handler.php
+msgid "WhatsApp Business API ayarları eksik"
+msgstr "WhatsApp Business API settings are missing"
+
+#: includes/class-wwa-api-handler.php
+msgid "Twilio API ayarları eksik"
+msgstr "Twilio API settings are missing"
+
+#: includes/class-wwa-api-handler.php
+msgid "Ultramsg API ayarları eksik"
+msgstr "Ultramsg API settings are missing"
+
+#: includes/class-wwa-api-handler.php
+msgid "WATI API ayarları eksik"
+msgstr "WATI API settings are missing"
+
+#: includes/class-wwa-api-handler.php
+msgid "Geçersiz API sağlayıcısı"
+msgstr "Invalid API provider"
+
+#: includes/class-wwa-api-handler.php
+msgid "Bu bir test mesajıdır. Woo WhatsApp Bildirimcisi başarıyla yapılandırıldı!"
+msgstr "This is a test message. Woo WhatsApp Notifications has been configured successfully!"
+
+#: includes/class-wwa-api-handler.php
+msgid "Test için yönetici telefon numarası gerekli"
+msgstr "Admin phone number is required for testing"
+
+#: includes/class-wwa-api-handler.php
+msgid "Telefon numarası boş olamaz"
+msgstr "Phone number cannot be empty"
+
+#: includes/class-wwa-api-handler.php
+msgid "Geçersiz telefon numarası uzunluğu"
+msgstr "Invalid phone number length"
+
+#: includes/class-wwa-api-handler.php
+msgid "Resmi Meta WhatsApp Business API"
+msgstr "Official Meta WhatsApp Business API"
+
+#: includes/class-wwa-api-handler.php
+msgid "Twilio WhatsApp Messaging API"
+msgstr "Twilio WhatsApp Messaging API"
+
+#: includes/class-wwa-api-handler.php
+msgid "Ultramsg WhatsApp API Gateway"
+msgstr "Ultramsg WhatsApp API Gateway"
+
+#: includes/class-wwa-api-handler.php
+msgid "WATI WhatsApp Business API"
+msgstr "WATI WhatsApp Business API"
+
+#: includes/class-wwa-woocommerce.php
+msgid "WhatsApp bildirimi gönderildi (%s): %s"
+msgstr "WhatsApp notification sent (%s): %s"
+
+#: includes/class-wwa-woocommerce.php
+msgid "WhatsApp bildirimi BAŞARISIZ (%s): %s - Hata: %s"
+msgstr "WhatsApp notification FAILED (%s): %s - Error: %s"
+
+#: includes/class-wwa-woocommerce.php
+msgid "WhatsApp Bildirimi"
+msgstr "WhatsApp Notification"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Müşteri Telefonu:"
+msgstr "Customer Phone:"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Şablon seçin..."
+msgstr "Select template..."
+
+#: includes/class-wwa-woocommerce.php
+msgid "Özel Mesaj"
+msgstr "Custom Message"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Özel mesajınızı yazın..."
+msgstr "Write your custom message..."
+
+#: includes/class-wwa-woocommerce.php
+msgid "WhatsApp Gönder"
+msgstr "Send WhatsApp"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Gönderiliyor..."
+msgstr "Sending..."
+
+#: includes/class-wwa-woocommerce.php
+msgid "Gönderildi!"
+msgstr "Sent!"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Hata oluştu"
+msgstr "An error occurred"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Lütfen bir şablon seçin"
+msgstr "Please select a template"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Lütfen mesajınızı yazın"
+msgstr "Please write your message"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Müşteri telefon numarası bulunamadı."
+msgstr "Customer phone number not found."
+
+#: includes/class-wwa-woocommerce.php
+msgid "Yetkiniz yok"
+msgstr "You do not have permission"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Geçersiz sipariş"
+msgstr "Invalid order"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Sipariş bulunamadı"
+msgstr "Order not found"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Müşteri telefonu bulunamadı"
+msgstr "Customer phone not found"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Şablon bulunamadı"
+msgstr "Template not found"
+
+#: includes/class-wwa-woocommerce.php
+msgid "Manuel WhatsApp bildirimi gönderildi: %s"
+msgstr "Manual WhatsApp notification sent: %s"
+
+#: includes/class-wwa-template-parser.php
+msgid "Ücretsiz"
+msgstr "Free"
+
+#: includes/class-wwa-template-parser.php
+msgid "Henüz belirtilmedi"
+msgstr "Not yet specified"
+
+#: admin/class-wwa-admin.php
+msgid "WhatsApp Bildirimleri"
+msgstr "WhatsApp Notifications"
+
+#: admin/class-wwa-admin.php
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: admin/class-wwa-admin.php
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: admin/class-wwa-admin.php
+msgid "Ayarlar"
+msgstr "Settings"
+
+#: admin/class-wwa-admin.php
+msgid "Şablonlar"
+msgstr "Templates"
+
+#: admin/class-wwa-admin.php
+msgid "Mesaj Logları"
+msgstr "Message Logs"
+
+#: admin/class-wwa-admin.php
+msgid "Loglar"
+msgstr "Logs"
+
+#: admin/class-wwa-admin.php
+msgid "Build dosyaları bulunamadı. Lütfen \"npm install && npm run build\" komutunu çalıştırın."
+msgstr "Build files not found. Please run \"npm install && npm run build\"."
+
+#: includes/class-wwa-rest-api.php
+msgid "Geçersiz veri"
+msgstr "Invalid data"
+
+#: includes/class-wwa-rest-api.php
+msgid "Ayarlar kaydedildi"
+msgstr "Settings saved"
+
+#: includes/class-wwa-rest-api.php
+msgid "Ayarlar kaydedilemedi"
+msgstr "Settings could not be saved"
+
+#: includes/class-wwa-rest-api.php
+msgid "Şablonlar kaydedildi"
+msgstr "Templates saved"
+
+#: includes/class-wwa-rest-api.php
+msgid "Şablonlar kaydedilemedi"
+msgstr "Templates could not be saved"
+
+#: includes/class-wwa-rest-api.php
+msgid "Şablon boş olamaz"
+msgstr "Template cannot be empty"
+
+#: includes/class-wwa-rest-api.php
+msgid "Telefon numarası gerekli"
+msgstr "Phone number is required"
+
+#: includes/class-wwa-rest-api.php
+msgid "Test mesajı gönderildi"
+msgstr "Test message sent"
+
+#: includes/class-wwa-rest-api.php
+msgid "Mesaj gönderilemedi"
+msgstr "Message could not be sent"
+
+#: includes/class-wwa-rest-api.php
+msgid "Bağlantı başarılı"
+msgstr "Connection successful"
+
+#: includes/class-wwa-rest-api.php
+msgid "Bağlantı başarısız"
+msgstr "Connection failed"
+
+#: includes/class-wwa-rest-api.php
+msgid "Log bulunamadı"
+msgstr "Log not found"
+
+#: includes/class-wwa-rest-api.php
+msgid "Log silindi"
+msgstr "Log deleted"
+
+#: includes/class-wwa-rest-api.php
+msgid "Log silinemedi"
+msgstr "Log could not be deleted"
+
+#: includes/class-wwa-rest-api.php
+msgid "Tüm loglar silindi"
+msgstr "All logs deleted"
+
+#: includes/class-wwa-rest-api.php
+msgid "Loglar silinemedi"
+msgstr "Logs could not be deleted"
+
+#: includes/class-wwa-rest-api.php
+msgid "Mesaj yeniden gönderildi"
+msgstr "Message resent"
+
+#: includes/class-wwa-rest-api.php
+msgid "Veri boş olamaz"
+msgstr "Data cannot be empty"
+
+#: includes/class-wwa-rest-api.php
+msgid "Ayarlar içe aktarıldı"
+msgstr "Settings imported"
+
+#: includes/class-wwa-settings.php
+msgid "Geçersiz JSON formatı"
+msgstr "Invalid JSON format"
+
+#: includes/class-wwa-rest-api.php
+msgid "Lisans anahtarı gerekli"
+msgstr "License key is required"
+
+#: includes/class-wwa-rest-api.php
+msgid "Geçersiz lisans formatı"
+msgstr "Invalid license format"
+
+#: includes/class-wwa-rest-api.php
+msgid "Lisans başarıyla aktifleştirildi! Aylık aboneliğiniz başladı."
+msgstr "License activated successfully! Your monthly subscription has started."
+
+#: includes/class-wwa-rest-api.php
+msgid "Lisans doğrulanamadı"
+msgstr "License could not be verified"
+
+#: includes/class-wwa-rest-api.php
+msgid "Aktif lisans bulunamadı"
+msgstr "No active license found"
+
+#: includes/class-wwa-rest-api.php
+msgid "Lisans deaktif edildi"
+msgstr "License deactivated"
+
+#: includes/class-wwa-rest-api.php
+msgid "Lisans bulunamadı"
+msgstr "License not found"
+
+#: includes/class-wwa-rest-api.php
+msgid "Lisans geçerli"
+msgstr "License is valid"
+
+#: includes/class-wwa-rest-api.php
+msgid "Lisans geçersiz veya süresi dolmuş"
+msgstr "License is invalid or expired"
+
+#: includes/class-wwa-abandoned-cart.php
+msgid "Sepet bulunamadı"
+msgstr "Cart not found"
+
+#: includes/class-wwa-abandoned-cart.php
+msgid "Telefon numarası bulunamadı"
+msgstr "Phone number not found"
+
+#: includes/class-wwa-abandoned-cart.php
+msgid "Sepet tutarı 0, hatırlatma gönderilemez"
+msgstr "Cart total is 0, cannot send reminder"
+
+#: includes/class-wwa-abandoned-cart.php
+msgid "Değerli Müşterimiz"
+msgstr "Valued Customer"
+
+#: includes/class-wwa-chatbot.php
+msgid "Sipariş Durumu"
+msgstr "Order Status"
+
+#: includes/class-wwa-chatbot.php
+msgid "Son Siparişleriniz"
+msgstr "Your Recent Orders"
+
+#: includes/class-wwa-chatbot.php
+msgid "Detay için sipariş numarasını yazabilirsiniz."
+msgstr "You can write the order number for details."
+
+#: includes/class-wwa-chatbot.php
+msgid "Anahtar kelime ve yanıt gerekli"
+msgstr "Keyword and response are required"
+
+#: includes/class-wwa-chatbot.php
+msgid "Kural oluşturuldu"
+msgstr "Rule created"
+
+#: includes/class-wwa-chatbot.php
+msgid "Kural oluşturulamadı"
+msgstr "Rule could not be created"
+
+#: includes/class-wwa-chatbot.php
+msgid "Kural güncellendi"
+msgstr "Rule updated"
+
+#: includes/class-wwa-chatbot.php
+msgid "Kural silinemedi"
+msgstr "Rule could not be deleted"

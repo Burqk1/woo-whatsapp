@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woo WhatsApp Pro - Installation Guide</title>
+    <style>
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background: #f4f6f9; }
+        .container { max-width: 960px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        h1, h2, h3 { color: #2c3e50; }
+        h1 { border-bottom: 2px solid #25D366; padding-bottom: 10px; margin-bottom: 30px; }
+        h2 { margin-top: 40px; border-left: 5px solid #25D366; padding-left: 15px; background: #f9f9f9; padding-top: 10px; padding-bottom: 10px; }
+        h3 { margin-top: 25px; color: #128C7E; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #d63384; }
+        .note { background: #e7f3fe; border-left: 5px solid #2196F3; padding: 15px; margin: 20px 0; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; }
+        .footer { margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; font-size: 12px; color: #999; text-align: center; }
+        ul, ol { padding-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        .step-block { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .faq-item { margin-bottom: 20px; }
+        .faq-question { font-weight: bold; color: #2c3e50; cursor: pointer; }
+        .faq-answer { margin-top: 5px; color: #555; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Woo WhatsApp Pro - Installation Guide</h1>
+    <p>This guide will help you install and configure Woo WhatsApp Pro step by step.</p>
+    
+    <div class="note">
+        <strong>Note:</strong> Ensure you have the minimum requirements before proceeding.
+    </div>
+
+    <h2>Minimum Requirements</h2>
+    <ul>
+        <li>WordPress 5.8 or higher</li>
+        <li>PHP 7.4 or higher</li>
+        <li>WooCommerce 5.0 or higher</li>
+        <li>SSL Certificate (HTTPS)</li>
+    </ul>
+
+    <h2>Installation Steps</h2>
+
+    <div class="step-block">
+        <h3>Step 1: Install the Plugin</h3>
+        <ol>
+            <li>Log in to your WordPress admin panel.</li>
+            <li>Navigate to <strong>Plugins > Add New</strong> from the left menu.</li>
+            <li>Click the <strong>Upload Plugin</strong> button.</li>
+            <li>Select the <code>woo-whatsapp-pro.zip</code> file.</li>
+            <li>Click <strong>Install Now</strong>.</li>
+            <li>Once installation is complete, click <strong>Activate Plugin</strong>.</li>
+        </ol>
+    </div>
+
+    <div class="step-block">
+        <h3>Step 2: Activate Your License</h3>
+        <ol>
+            <li>Click <strong>WhatsApp</strong> in the left menu.</li>
+            <li>Go to the <strong>Settings</strong> tab.</li>
+            <li>Find the <strong>License</strong> section.</li>
+            <li>Enter your <strong>Purchase Code</strong> from CodeCanyon.<br>
+                <em>(Example format: a1b2c3d4-e5f6-7890-abcd-ef1234567890)</em></li>
+            <li>Click the <strong>Activate</strong> button.</li>
+        </ol>
+        <div class="note">
+            <strong>To find your Purchase Code:</strong> Log in to your CodeCanyon account, go to the Downloads page, and click "Download" > "License certificate & purchase code" next to Woo WhatsApp Pro.
+        </div>
+    </div>
+
+    <div class="step-block">
+        <h3>Step 3: WhatsApp API Settings</h3>
+        <p>Supported API providers:</p>
+        <ul>
+            <li>WhatsApp Business API (Meta)</li>
+            <li>Twilio WhatsApp</li>
+            <li>Ultramsg</li>
+            <li>WATI</li>
+            <li>360dialog</li>
+        </ul>
+        <ol>
+            <li>Select your API provider in the <strong>Settings</strong> tab.</li>
+            <li>Enter the required credentials for your chosen provider:
+                <ul>
+                    <li><strong>WhatsApp Business API:</strong> API Token, Phone Number ID, Business Account ID (optional)</li>
+                    <li><strong>Twilio:</strong> Account SID, Auth Token, WhatsApp Phone Number</li>
+                    <li><strong>Ultramsg:</strong> Instance ID, Token</li>
+                    <li><strong>WATI:</strong> API URL, API Token</li>
+                    <li><strong>360dialog:</strong> API Key</li>
+                </ul>
+            </li>
+            <li>Click <strong>Test API Connection</strong> to verify your connection.</li>
+        </ol>
+    </div>
+
+    <div class="step-block">
+        <h3>Step 4: Notification Settings</h3>
+        <ol>
+            <li>Configure your notification preferences in the <strong>Settings</strong> tab:
+                <ul>
+                    <li>Send notifications to customer: Yes/No</li>
+                    <li>Send notifications to admin: Yes/No</li>
+                    <li>Admin phone number: Full number starting with country code (e.g., +1)</li>
+                </ul>
+            </li>
+            <li>Select the order statuses for which you want to send notifications:
+                <ul>
+                    <li>Processing</li>
+                    <li>Completed</li>
+                    <li>On Hold</li>
+                    <li>Cancelled</li>
+                    <li>Refunded</li>
+                    <li>Shipped</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="step-block">
+        <h3>Step 5: Message Templates</h3>
+        <ol>
+            <li>Go to the <strong>Templates</strong> tab.</li>
+            <li>Edit your message template for each order status.</li>
+            <li><strong>Available placeholders:</strong>
+                <ul>
+                    <li><code>{customer_name}</code> - Customer full name</li>
+                    <li><code>{order_number}</code> - Order number</li>
+                    <li><code>{order_total}</code> - Order total</li>
+                    <li><code>{product_list}</code> - Ordered products</li>
+                    <li><code>{tracking_number}</code> - Shipping tracking number</li>
+                    <li><code>{customer_phone}</code> - Customer phone</li>
+                    <li><code>{payment_method}</code> - Payment method</li>
+                    <li><code>{site_name}</code> - Site name</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Pro Features</h2>
+    <p>With an active license, you get access to the following features:</p>
+    <ul>
+        <li><strong>Flow Builder:</strong> Create your own WhatsApp message workflows with the visual drag-and-drop automation designer.</li>
+        <li><strong>Abandoned Cart Recovery:</strong> Send automatic reminder messages to customers who abandoned their cart.</li>
+        <li><strong>Smart Chatbot:</strong> Answer customer questions with keyword-based automatic responses.</li>
+        <li><strong>Stock Notification / Waitlist:</strong> Create a waitlist for out-of-stock products, notify customers when items are back in stock.</li>
+        <li><strong>Advanced Analytics:</strong> Track your performance with detailed reports and charts.</li>
+        <li><strong>CSV/PDF Export:</strong> Download your reports in CSV or PDF format.</li>
+        <li><strong>Multi-language Support:</strong> Multi-language support with WPML, Polylang, or TranslatePress.</li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+    
+    <div class="faq-item">
+        <div class="faq-question">Q: Which WhatsApp API should I use?</div>
+        <div class="faq-answer">
+            A: 
+            <ul>
+                <li><strong>Enterprise use:</strong> WhatsApp Business API (Meta) or 360dialog</li>
+                <li><strong>Quick start:</strong> Ultramsg or WATI</li>
+                <li><strong>Reliable infrastructure:</strong> Twilio</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: Why aren't my messages being sent?</div>
+        <div class="faq-answer">
+            A:
+            <ol>
+                <li>Check your API credentials (use the connection test in Dashboard).</li>
+                <li>Check the phone number format (include country code: +1...).</li>
+                <li>Make sure test mode is disabled.</li>
+                <li>Review error messages on the Logs page.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: Where can I find my Purchase Code?</div>
+        <div class="faq-answer">
+            A: In your CodeCanyon account, go to the Downloads page and click "Download" > "License certificate & purchase code" next to the product.
+        </div>
+    </div>
+
+    <h2>Support</h2>
+    <p>For technical support: <a href="mailto:burak09.dilli@gmail.com">burak09.dilli@gmail.com</a></p>
+    <p><strong>When requesting support, please include:</strong></p>
+    <ul>
+        <li>WordPress version</li>
+        <li>WooCommerce version</li>
+        <li>PHP version</li>
+        <li>API provider you're using</li>
+        <li>Error message or screenshot</li>
+    </ul>
+
+    <div class="footer">
+        &copy; 2025 Woo WhatsApp Pro. All rights reserved.
+    </div>
+</div>
+
+</body>
+</html>

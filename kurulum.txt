@@ -1,0 +1,154 @@
+=== Woo WhatsApp Pro - Installation Guide ===
+
+This guide will help you install and configure Woo WhatsApp Pro step by step.
+
+== Minimum Requirements ==
+
+* WordPress 5.8 or higher
+* PHP 7.4 or higher
+* WooCommerce 5.0 or higher
+* SSL Certificate (HTTPS)
+
+== Installation Steps ==
+
+= Step 1: Install the Plugin =
+
+1. Log in to your WordPress admin panel
+2. Navigate to "Plugins" > "Add New" from the left menu
+3. Click the "Upload Plugin" button
+4. Select the woo-whatsapp-pro.zip file
+5. Click "Install Now"
+6. Once installation is complete, click "Activate Plugin"
+
+= Step 2: Activate Your License =
+
+1. Click "WhatsApp" in the left menu
+2. Go to the "Settings" tab
+3. Find the "License" section
+4. Enter your Purchase Code from CodeCanyon
+   (Example format: a1b2c3d4-e5f6-7890-abcd-ef1234567890)
+5. Click the "Activate" button
+
+To find your Purchase Code:
+- Log in to your CodeCanyon account
+- Go to the Downloads page
+- Click "Download" > "License certificate & purchase code" next to Woo WhatsApp Pro
+
+= Step 3: WhatsApp API Settings =
+
+Supported API providers:
+- WhatsApp Business API (Meta)
+- Twilio WhatsApp
+- Ultramsg
+- WATI
+- 360dialog
+
+1. Select your API provider in the "Settings" tab
+2. Enter the required credentials for your chosen provider:
+
+   For WhatsApp Business API:
+   - API Token
+   - Phone Number ID
+   - Business Account ID (optional)
+
+   For Twilio:
+   - Account SID
+   - Auth Token
+   - WhatsApp Phone Number
+
+   For Ultramsg:
+   - Instance ID
+   - Token
+
+   For WATI:
+   - API URL
+   - API Token
+
+   For 360dialog:
+   - API Key
+
+3. Click "Test API Connection" to verify your connection
+
+= Step 4: Notification Settings =
+
+1. Configure your notification preferences in the "Settings" tab:
+   - Send notifications to customer: Yes/No
+   - Send notifications to admin: Yes/No
+   - Admin phone number: Full number starting with country code (e.g., +1)
+
+2. Select the order statuses for which you want to send notifications:
+   - Processing
+   - Completed
+   - On Hold
+   - Cancelled
+   - Refunded
+   - Shipped
+
+= Step 5: Message Templates =
+
+1. Go to the "Templates" tab
+2. Edit your message template for each order status
+3. Available placeholders:
+   - {customer_name} - Customer full name
+   - {order_number} - Order number
+   - {order_total} - Order total
+   - {product_list} - Ordered products
+   - {tracking_number} - Shipping tracking number
+   - {customer_phone} - Customer phone
+   - {payment_method} - Payment method
+   - {site_name} - Site name
+   and more...
+
+== Pro Features ==
+
+With an active license, you get access to the following features:
+
+= Flow Builder =
+Create your own WhatsApp message workflows with the visual drag-and-drop automation designer.
+
+= Abandoned Cart Recovery =
+Send automatic reminder messages to customers who abandoned their cart.
+
+= Smart Chatbot =
+Answer customer questions with keyword-based automatic responses.
+
+= Stock Notification / Waitlist =
+Create a waitlist for out-of-stock products, notify customers when items are back in stock.
+
+= Advanced Analytics =
+Track your performance with detailed reports and charts.
+
+= CSV/PDF Export =
+Download your reports in CSV or PDF format.
+
+= Multi-language Support =
+Multi-language support with WPML, Polylang, or TranslatePress.
+
+== Frequently Asked Questions ==
+
+Q: Which WhatsApp API should I use?
+A:
+- Enterprise use: WhatsApp Business API (Meta) or 360dialog
+- Quick start: Ultramsg or WATI
+- Reliable infrastructure: Twilio
+
+Q: Why aren't my messages being sent?
+A:
+1. Check your API credentials (use the connection test in Dashboard)
+2. Check the phone number format (include country code: +1...)
+3. Make sure test mode is disabled
+4. Review error messages on the Logs page
+
+Q: Where can I find my Purchase Code?
+A: In your CodeCanyon account, go to the Downloads page and click "Download" > "License certificate & purchase code" next to the product.
+
+== Support ==
+
+For technical support: burak09.dilli@gmail.com
+
+When requesting support, please include:
+- WordPress version
+- WooCommerce version
+- PHP version
+- API provider you're using
+- Error message or screenshot

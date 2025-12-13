@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php -l:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(if exist woo-whatsapp-pro.zip del woo-whatsapp-pro.zip)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

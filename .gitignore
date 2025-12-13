@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build
+build/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Package files
+package-lock.json
+composer.lock
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
