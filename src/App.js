@@ -37,10 +37,6 @@ const ProUpgradePrompt = ({ feature, onGoToLicense }) => (
         <button className="wwa-btn wwa-btn-primary wwa-btn-large" onClick={onGoToLicense}>
             🔑 Lisansı Aktifleştir
         </button>
-        <p className="wwa-upgrade-hint">
-            Demo lisans anahtarları ile test edebilirsiniz:<br />
-            <code>DEMO-1234-5678-DEMO</code>
-        </p>
     </div>
 );
 

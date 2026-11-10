@@ -80,7 +80,8 @@ function wwa_uninstall_cleanup() {
         $wpdb->prefix . 'wwa_chatbot_rules',
         $wpdb->prefix . 'wwa_chatbot_conversations',
         $wpdb->prefix . 'wwa_flows',
-        $wpdb->prefix . 'wwa_scheduled_messages'
+        $wpdb->prefix . 'wwa_flow_logs',
+        $wpdb->prefix . 'wwa_scheduled_flows'
     ];
 
     foreach ($tables as $table) {

@@ -3554,9 +3554,12 @@ class WWA_REST_API {
         // Gerekli izinler: "View and search Envato sites" ve "View the user's items' sales history"
         $envato_token = defined('WWA_ENVATO_TOKEN') ? WWA_ENVATO_TOKEN : get_option('wwa_envato_token', '');
 
-        // Demo mod: Token yoksa demo lisansları kullan (geliştirme/test için)
+        // Token yoksa doğrulama yapılamaz; lisans geçersiz sayılır
         if (empty($envato_token)) {
-            return $this->verify_demo_license($license_key);
+            return [
+                'success' => false,
+                'message' => __('Lisans doğrulanamadı: Envato token yapılandırılmamış (WWA_ENVATO_TOKEN).', 'woo-whatsapp')
+            ];
         }
 
         // Envato Purchase Code formatını kontrol et (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
@@ -3569,33 +3572,6 @@ class WWA_REST_API {
 
         // Envato API ile doğrula
         return $this->verify_envato_purchase($license_key, $envato_token, $action);
-    }
-
-    /**
-     * Demo lisans doğrulaması (geliştirme/test modu)
-     * Lifetime (Ömür Boyu) lisans modeli
-     */
-    private function verify_demo_license($license_key) {
-        $demo_licenses = [
-            'DEMO-1234-5678-DEMO' => ['type' => 'lifetime'],
-            'PRO1-2345-6789-ABCD' => ['type' => 'lifetime'],
-            'AGEN-CY12-3456-7890' => ['type' => 'lifetime']
-        ];
-
-        $license_upper = strtoupper($license_key);
-        if (isset($demo_licenses[$license_upper])) {
-            return [
-                'success' => true,
-                'type' => $demo_licenses[$license_upper]['type'],
-                'is_lifetime' => true,
-                'demo_mode' => true
-            ];
-        }
-
-        return [
-            'success' => false,
-            'message' => __('Geçersiz lisans anahtarı. Envato token yapılandırılmamış, demo modunda çalışıyor.', 'woo-whatsapp')
-        ];
     }
 
     /**

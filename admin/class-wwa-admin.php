@@ -404,6 +404,21 @@ class WWA_Admin {
                 <?php
             }
         }
+
+        $envato_token = defined('WWA_ENVATO_TOKEN') ? WWA_ENVATO_TOKEN : get_option('wwa_envato_token', '');
+        if (empty($envato_token)) {
+            $screen = get_current_screen();
+            if ($screen && strpos($screen->id, 'woo-whatsapp') !== false) {
+                ?>
+                <div class="notice notice-warning">
+                    <p>
+                        <strong><?php esc_html_e('Woo WhatsApp:', 'woo-whatsapp'); ?></strong>
+                        <?php esc_html_e('Envato token yapılandırılmamış (WWA_ENVATO_TOKEN). Lisans doğrulanamaz ve Pro özellikler kilitli kalır.', 'woo-whatsapp'); ?>
+                    </p>
+                </div>
+                <?php
+            }
+        }
     }
 
     /**

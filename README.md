@@ -58,7 +58,7 @@ Telefon numaraları gönderimden önce uluslararası biçime çevrilir; numaray�
 
 ### Hazır paketten
 
-Depodaki `woo-whatsapp.zip` derlenmiş `build/` klasörünü de içerir. WordPress admin'de **Eklentiler > Yeni Ekle > Eklenti Yükle** ile bu zip'i yükleyip etkinleştirin.
+Depodaki `woo-whatsapp.zip` derlenmiş `build/` klasörünü de içerir. **Bu zip güncel değildir**: demo lisans kaldırılmadan önceki PHP kodunu ve demo anahtarını gösteren eski derlemeyi içerir. Dağıtmadan önce `npm run build` ile yeniden derleyip zip'i yeniden oluşturun. WordPress admin'de **Eklentiler > Yeni Ekle > Eklenti Yükle** ile bu zip'i yükleyip etkinleştirin.
 
 ### Kaynaktan
 
@@ -71,7 +71,7 @@ npm run build
 
 Derleme yapılmazsa admin sayfası "Build dosyaları bulunamadı" uyarısı gösterir. Geliştirme sırasında `npm run start` ile izleme modunda derlenebilir.
 
-Etkinleştirmede eklenti kendi tablolarını oluşturur (`wwa_message_logs`, `wwa_flows`, `wwa_flow_logs`, `wwa_scheduled_flows`, `wwa_abandoned_carts`, `wwa_waitlist`, `wwa_chatbot_rules`, `wwa_chatbot_conversations`) ve varsayılan Türkçe şablonları kaydeder. Eklenti silindiğinde `uninstall.php` ayarları, `_wwa_` ile başlayan post meta kayıtlarını ve tabloların çoğunu kaldırır; `wwa_flow_logs` ve `wwa_scheduled_flows` bu listede yok (listede bunun yerine var olmayan `wwa_scheduled_messages` geçiyor), bu iki tablo silme sonrasında kalır.
+Etkinleştirmede eklenti kendi tablolarını oluşturur (`wwa_message_logs`, `wwa_flows`, `wwa_flow_logs`, `wwa_scheduled_flows`, `wwa_abandoned_carts`, `wwa_waitlist`, `wwa_chatbot_rules`, `wwa_chatbot_conversations`) ve varsayılan Türkçe şablonları kaydeder. Eklenti silindiğinde `uninstall.php` ayarları, `_wwa_` ile başlayan post meta kayıtlarını ve yukarıdaki tabloların hepsini kaldırır.
 
 ## Yapılandırma
 
@@ -97,9 +97,9 @@ Meta doğrulaması `wwa_webhook_verify_token` ayarındaki değerle karşılaşt�
 Pro özellikler `wwa_license_status` değeri `active` olduğunda açılır. Doğrulama `includes/class-wwa-rest-api.php` içindedir:
 
 - `WWA_ENVATO_TOKEN` sabiti (veya `wwa_envato_token` ayarı) tanımlıysa, girilen kod Envato Purchase Code formatında olmalıdır ve Envato API (`/v3/market/author/sale`) ile doğrulanır. `WWA_ENVATO_ITEM_ID` tanımlıysa kodun o ürüne ait olduğu da kontrol edilir. Bu token satıcının kendi Envato kişisel token'ıdır, `wp-config.php` içinde tanımlanabilir.
-- Token tanımlı değilse eklenti demo modunda çalışır ve yalnızca koda gömülü demo anahtarlarını kabul eder (`DEMO-1234-5678-DEMO`, `PRO1-2345-6789-ABCD`, `AGEN-CY12-3456-7890`).
+- Token tanımlı değilse hiçbir anahtar kabul edilmez: aktivasyon "Envato token yapılandırılmamış" hatasıyla reddedilir, lisans doğrulama (verify) çağrısında `invalid` olarak kaydedilir ve eklenti sayfalarında bu durumu bildiren bir admin uyarısı gösterilir. Önceki sürümlerdeki demo anahtarları ve demo modu kaldırılmıştır.
 
-Bu nedenle eklentiyi dağıtmadan önce demo anahtar mantığını gözden geçirmek gerekir; aksi halde herkes Pro özellikleri bu anahtarlarla açabilir.
+Not: daha önce demo anahtarıyla etkinleştirilmiş bir kurulumda `wwa_license_status` değeri `active` olarak kalır; lisans yeniden doğrulanana (veya seçenek elle sıfırlanana) kadar Pro açık görünür.
 
 ## Proje yapısı
 
@@ -132,7 +132,7 @@ readme.txt, kurulum.txt       WordPress.org / dağıtım metinleri
 - `readme.txt` değişiklik günlüğünde geçen "mesaj kuyruğu sistemi" kodda bulunmuyor.
 - `readme.txt` sepet kurtarma mesajına kupon eklenebileceğini söyler; sepet kurtarma modülünde kupon desteği yok (kupon oluşturma yalnızca Flow Builder eylemi olarak mevcut).
 - "PDF dışa aktarma" gerçek PDF değil, yazdırılabilir HTML üretir.
-- Sürüm numaraları tutarsız: eklenti başlığı 3.0.2, `readme.txt` Stable tag 3.0.0, `package.json` 2.0.0.
+- `src/App.js` içindeki demo anahtarı ipucu kaldırıldı, ancak derlenmiş `build/` (ve `woo-whatsapp.zip`) yeniden derlenene kadar eski metni içerir.
 
 ## Lisans
 
