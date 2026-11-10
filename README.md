@@ -1,107 +1,107 @@
 # Woo WhatsApp Bildirimcisi
 
-WooCommerce siparişleri için WhatsApp bildirimleri gönderen bir WordPress eklentisi. Sipariş bildirimlerinin yanında terk edilmiş sepet hatırlatmaları, stok bildirimi (bekleme listesi), anahtar kelimeli chatbot ve basit bir otomasyon (flow) editörü de içerir. Yönetim paneli React ile yazılmıştır ve WordPress admin içinde tek sayfa uygulama olarak açılır.
+A WordPress plugin that sends WhatsApp notifications for WooCommerce orders. Besides order notifications, it also includes abandoned cart reminders, back-in-stock notifications (waitlist), a keyword-based chatbot and a simple automation (flow) editor. The admin panel is written in React and opens as a single-page app inside WordPress admin.
 
-Eklenti başlığındaki sürüm: **3.0.2**. Arayüz metinleri ağırlıkla Türkçedir; `languages/` altında `en_US` çevirisi ve bir `.pot` dosyası bulunur.
+Version in the plugin header: **3.0.2**. The UI text is mostly Turkish; there is an `en_US` translation and a `.pot` file under `languages/`.
 
-> `readme.txt` dosyası WordPress.org formatındadır ve satış/dağıtım için yazılmıştır. Bu README ise koddaki mevcut durumu anlatır; iki dosya arasında farklar varsa (aşağıdaki "Bilinen farklar" bölümüne bakın) kod esas alınmalıdır.
+> `readme.txt` is in WordPress.org format and was written for sales/distribution. This README describes the current state of the code; where the two files differ (see the "Known discrepancies" section below), the code is authoritative.
 
-## Gereksinimler
+## Requirements
 
 - WordPress 5.8+
 - PHP 7.4+
-- WooCommerce 5.0+ (WooCommerce yoksa eklenti çalışmaz, admin'de uyarı gösterir)
-- Kaynaktan derlemek için Node.js ve npm (`@wordpress/scripts`)
+- WooCommerce 5.0+ (without WooCommerce the plugin doesn't run and shows a notice in admin)
+- Node.js and npm to build from source (`@wordpress/scripts`)
 
-Eklenti WooCommerce HPOS (`custom_order_tables`) uyumluluğunu bildirir.
+The plugin declares compatibility with WooCommerce HPOS (`custom_order_tables`).
 
-## Özellikler
+## Features
 
-### Temel (lisans gerektirmeyen)
+### Core (no license required)
 
-- **Sipariş durum bildirimleri**: `woocommerce_order_status_changed` üzerinden, ayarlarda seçilen durumlar için müşteriye mesaj gönderir. WooCommerce'in tüm durumları listelenir, ayrıca eklentiye özel bir `shipped` (Kargoya Verildi) durumu vardır.
-- **Yönetici bildirimleri**: sipariş `processing` durumuna geçince yeni sipariş, `cancelled` olunca iptal mesajı yönetici numarasına gider. Düşük stok ve stok tükendi uyarıları da yöneticiye gönderilir.
-- **Kargo takip mesajı**: sipariş düzenleme ekranında `_wwa_tracking_number` alanı doldurulduğunda `shipped` şablonu bir kez gönderilir. Takip numarası ayrıca WooCommerce Shipment Tracking ve YITH Order Tracking meta alanlarından da okunur.
-- **Manuel mesaj**: sipariş detay sayfasına müşteriye WhatsApp mesajı gönderme kutusu eklenir.
-- **Şablonlar ve yer tutucular**: her durum için ayrı şablon. Yer tutucular Türkçedir, örneğin `{müşteri_adı}`, `{sipariş_no}`, `{toplam_tutar}`, `{ürün_listesi}`, `{kargo_takip}`, `{teslimat_adresi}`, `{mağaza_adı}`, `{sipariş_url}`, `{kupon_kodu}`. Tam liste `includes/class-wwa-template-parser.php` içindedir; `wwa_template_values` filtresiyle yenileri eklenebilir.
-- **Mesaj logları**: gönderilen her mesaj `wp_wwa_message_logs` tablosuna yazılır; panelden listelenebilir, tekrar gönderilebilir, silinebilir. Eski loglar günlük cron ile `wwa_log_retention_days` (varsayılan 30) gününe göre temizlenir.
-- **Debug / simülasyon modu**: `wwa_debug_mode` açıkken mesajlar gerçekten gönderilmez, yalnızca loglanır. Bağlantı testi bu modu atlayıp gerçek mesaj yollar.
-- **Bağlantı testi**: yönetici numarasına bir test mesajı gönderir.
-- **Kurulum sihirbazı**: ilk açılışta adım adım API ve bildirim ayarları.
-- **Ayar içe/dışa aktarma** (JSON).
+- **Order status notifications**: via `woocommerce_order_status_changed`, sends a message to the customer for the statuses selected in settings. All WooCommerce statuses are listed, and there is also a plugin-specific `shipped` (Kargoya Verildi, "Shipped") status.
+- **Admin notifications**: a new order message is sent to the admin number when an order moves to `processing`, and a cancellation message when it becomes `cancelled`. Low stock and out-of-stock alerts are also sent to the admin.
+- **Shipment tracking message**: when the `_wwa_tracking_number` field is filled in on the order edit screen, the `shipped` template is sent once. The tracking number is also read from the WooCommerce Shipment Tracking and YITH Order Tracking meta fields.
+- **Manual message**: a box for sending a WhatsApp message to the customer is added to the order detail page.
+- **Templates and placeholders**: a separate template for each status. Placeholders are in Turkish, for example `{müşteri_adı}` (customer name), `{sipariş_no}` (order number), `{toplam_tutar}` (order total), `{ürün_listesi}` (product list), `{kargo_takip}` (shipment tracking), `{teslimat_adresi}` (shipping address), `{mağaza_adı}` (store name), `{sipariş_url}` (order URL), `{kupon_kodu}` (coupon code). The full list is in `includes/class-wwa-template-parser.php`; new ones can be added with the `wwa_template_values` filter.
+- **Message logs**: every sent message is written to the `wp_wwa_message_logs` table; logs can be listed, resent and deleted from the panel. Old logs are cleaned up by a daily cron according to `wwa_log_retention_days` (default 30).
+- **Debug / simulation mode**: when `wwa_debug_mode` is on, messages are not actually sent, only logged. The connection test bypasses this mode and sends a real message.
+- **Connection test**: sends a test message to the admin number.
+- **Setup wizard**: step-by-step API and notification settings on first launch.
+- **Settings import/export** (JSON).
 
-### Pro (lisans gerektiren)
+### Pro (license required)
 
-Aşağıdaki sekmeler ve ilgili REST uçları aktif lisans olmadan kilitlidir:
+The following tabs and their REST endpoints are locked without an active license:
 
-- **Flow Builder**: tetikleyici + eylem zinciri. Tetikleyiciler: yeni sipariş, sipariş durumu değişimi, sepet terk edildi, ürün stoğa girdi, webhook alındı. Eylemler: WhatsApp mesajı gönder, bekle, koşul kontrolü, sipariş notu ekle, kupon oluştur. Bekleyen adımlar `wp_wwa_scheduled_flows` tablosundan 5 dakikalık cron ile işlenir.
-- **Sepet kurtarma**: sepet değişiklikleri izlenir, ödeme sayfasındaki e-posta/telefon alanları misafir kullanıcılar için de AJAX ile yakalanır (`assets/js/cart-tracking.js`). 15 dakika güncellenmeyen ve iletişim bilgisi olan sepetler "terk edilmiş" sayılır. Otomatik hatırlatma açıksa, ayarlanan gecikmeden (varsayılan 30 dk) sonra en fazla belirlenen sayıda (varsayılan 1) mesaj gönderilir. Mesaj, sepeti geri yükleyen imzalı bir kurtarma linki içerir. Sipariş tamamlanınca sepet "kurtarıldı" olarak işaretlenir.
-- **Stok bildirimi / bekleme listesi**: stokta olmayan ürün sayfasına abonelik formu eklenir. Ürün tekrar stoğa girince abonelere e-posta, WhatsApp veya ikisiyle bildirim gider.
-- **Chatbot**: gelen mesajlar anahtar kelime kurallarıyla eşleştirilir (`exact`, `contains`, `starts_with`, `ends_with`, `regex`). Sipariş durumu, kargo takip ve sipariş listesi gibi dinamik yanıtlar, müşteriyi telefon numarasından bularak üretilir. Hazır varsayılan kurallar yüklenebilir; konuşmalar loglanır.
-- **Analitik ve raporlar**: özet ve mesaj istatistikleri, CSV dışa aktarma. "PDF" dışa aktarma aslında yazdırılabilir bir HTML rapor üretir; PDF'e tarayıcıdan kaydedilir.
-- **Çoklu dil**: WPML, Polylang veya TranslatePress algılanırsa şablonlar dile göre ayrı tutulabilir ve siparişin diline göre şablon seçilir.
+- **Flow Builder**: a trigger + action chain. Triggers: new order, order status change, cart abandoned, product back in stock, webhook received. Actions: send WhatsApp message, wait, check condition, add order note, create coupon. Pending steps are processed from the `wp_wwa_scheduled_flows` table by a 5-minute cron.
+- **Cart recovery**: cart changes are tracked, and the email/phone fields on the checkout page are captured via AJAX for guest users too (`assets/js/cart-tracking.js`). Carts that haven't been updated for 15 minutes and have contact info are considered abandoned. If automatic reminders are on, up to the configured number of messages (default 1) are sent after the configured delay (default 30 min). The message contains a signed recovery link that restores the cart. When the order is completed, the cart is marked as recovered.
+- **Back-in-stock notification / waitlist**: a subscription form is added to the page of an out-of-stock product. When the product is back in stock, subscribers are notified by email, WhatsApp or both.
+- **Chatbot**: incoming messages are matched against keyword rules (`exact`, `contains`, `starts_with`, `ends_with`, `regex`). Dynamic replies such as order status, shipment tracking and order list are generated by looking up the customer by phone number. Ready-made default rules can be loaded; conversations are logged.
+- **Analytics and reports**: summary and message statistics, CSV export. The "PDF" export actually produces a printable HTML report; it is saved to PDF from the browser.
+- **Multilingual**: if WPML, Polylang or TranslatePress is detected, templates can be kept separately per language, and the template is chosen based on the order's language.
 
-## Desteklenen WhatsApp sağlayıcıları
+## Supported WhatsApp providers
 
-`includes/class-wwa-api-handler.php` içinde dört sağlayıcı uygulanmıştır:
+Four providers are implemented in `includes/class-wwa-api-handler.php`:
 
-| Sağlayıcı | Gerekli ayarlar |
+| Provider | Required settings |
 |---|---|
-| WhatsApp Business Cloud API (Meta, Graph API v18.0) | API Token, Phone Number ID (Business Account ID opsiyonel) |
-| Twilio | Account SID, Auth Token, WhatsApp numarası |
+| WhatsApp Business Cloud API (Meta, Graph API v18.0) | API Token, Phone Number ID (Business Account ID optional) |
+| Twilio | Account SID, Auth Token, WhatsApp number |
 | Ultramsg | Instance ID, Token |
 | WATI | API URL, API Token |
 
-Telefon numaraları gönderimden önce uluslararası biçime çevrilir; numarayı ülke koduyla girin.
+Phone numbers are converted to international format before sending; enter numbers with the country code.
 
-## Kurulum
+## Installation
 
-### Hazır paketten
+### From the prebuilt package
 
-Depodaki `woo-whatsapp.zip` derlenmiş `build/` klasörünü de içerir. **Bu zip güncel değildir**: demo lisans kaldırılmadan önceki PHP kodunu ve demo anahtarını gösteren eski derlemeyi içerir. Dağıtmadan önce `npm run build` ile yeniden derleyip zip'i yeniden oluşturun. WordPress admin'de **Eklentiler > Yeni Ekle > Eklenti Yükle** ile bu zip'i yükleyip etkinleştirin.
+The `woo-whatsapp.zip` in the repo also contains the compiled `build/` folder. **This zip is out of date**: it contains the PHP code from before the demo license was removed and an old build that shows the demo key. Rebuild with `npm run build` and recreate the zip before distributing. In WordPress admin, upload and activate this zip via **Plugins > Add New > Upload Plugin**.
 
-### Kaynaktan
+### From source
 
-`build/` klasörü `.gitignore` içinde olduğu için depoda yoktur. Klasörü `wp-content/plugins/woo-whatsapp/` altına kopyaladıktan sonra:
+The `build/` folder is in `.gitignore`, so it isn't in the repo. After copying the folder to `wp-content/plugins/woo-whatsapp/`:
 
 ```bash
 npm install
 npm run build
 ```
 
-Derleme yapılmazsa admin sayfası "Build dosyaları bulunamadı" uyarısı gösterir. Geliştirme sırasında `npm run start` ile izleme modunda derlenebilir.
+Without a build, the admin page shows a "Build dosyaları bulunamadı" ("Build files not found") notice. During development you can build in watch mode with `npm run start`.
 
-Etkinleştirmede eklenti kendi tablolarını oluşturur (`wwa_message_logs`, `wwa_flows`, `wwa_flow_logs`, `wwa_scheduled_flows`, `wwa_abandoned_carts`, `wwa_waitlist`, `wwa_chatbot_rules`, `wwa_chatbot_conversations`) ve varsayılan Türkçe şablonları kaydeder. Eklenti silindiğinde `uninstall.php` ayarları, `_wwa_` ile başlayan post meta kayıtlarını ve yukarıdaki tabloların hepsini kaldırır.
+On activation, the plugin creates its own tables (`wwa_message_logs`, `wwa_flows`, `wwa_flow_logs`, `wwa_scheduled_flows`, `wwa_abandoned_carts`, `wwa_waitlist`, `wwa_chatbot_rules`, `wwa_chatbot_conversations`) and saves the default Turkish templates. When the plugin is deleted, `uninstall.php` removes the settings, post meta entries starting with `_wwa_`, and all of the tables above.
 
-## Yapılandırma
+## Configuration
 
-1. Sol menüden **WhatsApp**'a girin; ilk açılışta kurulum sihirbazı çıkar.
-2. **Ayarlar**'da sağlayıcıyı seçip kimlik bilgilerini girin, yönetici numarasını ekleyin ve bağlantıyı test edin.
-3. Bildirim gönderilecek sipariş durumlarını ve müşteriye/yöneticiye gönderim seçeneklerini belirleyin.
-4. **Şablonlar** sekmesinden mesajları düzenleyin; önizleme örnek verilerle yapılır.
+1. Open **WhatsApp** from the left menu; the setup wizard appears on first launch.
+2. In **Ayarlar** (Settings), choose the provider and enter the credentials, add the admin number and test the connection.
+3. Choose the order statuses that trigger notifications and the customer/admin sending options.
+4. Edit the messages in the **Şablonlar** (Templates) tab; the preview uses sample data.
 
-### Webhook'lar (gelen mesajlar / chatbot)
+### Webhooks (incoming messages / chatbot)
 
-Gelen mesajlar için şu REST uçları açıktır:
+The following REST endpoints are open for incoming messages:
 
-- `/wp-json/wwa/v1/webhook` (sağlayıcıyı içerikten algılar; GET isteği Meta doğrulaması içindir)
+- `/wp-json/wwa/v1/webhook` (detects the provider from the payload; the GET request is for Meta verification)
 - `/wp-json/wwa/v1/webhook/whatsapp` (Meta)
 - `/wp-json/wwa/v1/webhook/twilio`
 - `/wp-json/wwa/v1/webhook/ultramsg`
-- `/wp-json/wwa/v1/webhook/{key}` (Flow Builder'ın "Webhook Alındı" tetikleyicisi)
+- `/wp-json/wwa/v1/webhook/{key}` (Flow Builder's "Webhook Alındı" ("Webhook Received") trigger)
 
-Meta doğrulaması `wwa_webhook_verify_token` ayarındaki değerle karşılaştırılır.
+Meta verification is compared against the value in the `wwa_webhook_verify_token` setting.
 
-### Lisans
+### License
 
-Pro özellikler `wwa_license_status` değeri `active` olduğunda açılır. Doğrulama `includes/class-wwa-rest-api.php` içindedir:
+Pro features are unlocked when the `wwa_license_status` value is `active`. Validation is in `includes/class-wwa-rest-api.php`:
 
-- `WWA_ENVATO_TOKEN` sabiti (veya `wwa_envato_token` ayarı) tanımlıysa, girilen kod Envato Purchase Code formatında olmalıdır ve Envato API (`/v3/market/author/sale`) ile doğrulanır. `WWA_ENVATO_ITEM_ID` tanımlıysa kodun o ürüne ait olduğu da kontrol edilir. Bu token satıcının kendi Envato kişisel token'ıdır, `wp-config.php` içinde tanımlanabilir.
-- Token tanımlı değilse hiçbir anahtar kabul edilmez: aktivasyon "Envato token yapılandırılmamış" hatasıyla reddedilir, lisans doğrulama (verify) çağrısında `invalid` olarak kaydedilir ve eklenti sayfalarında bu durumu bildiren bir admin uyarısı gösterilir. Önceki sürümlerdeki demo anahtarları ve demo modu kaldırılmıştır.
+- If the `WWA_ENVATO_TOKEN` constant (or the `wwa_envato_token` setting) is defined, the entered code must be in Envato Purchase Code format and is validated with the Envato API (`/v3/market/author/sale`). If `WWA_ENVATO_ITEM_ID` is defined, it also checks that the code belongs to that item. This token is the seller's own Envato personal token and can be defined in `wp-config.php`.
+- If no token is defined, no key is accepted: activation is rejected with the error "Envato token yapılandırılmamış" ("Envato token is not configured"), the license verify call records it as `invalid`, and an admin notice reporting this is shown on the plugin pages. The demo keys and demo mode from earlier versions have been removed.
 
-Not: daha önce demo anahtarıyla etkinleştirilmiş bir kurulumda `wwa_license_status` değeri `active` olarak kalır; lisans yeniden doğrulanana (veya seçenek elle sıfırlanana) kadar Pro açık görünür.
+Note: on an install that was previously activated with a demo key, the `wwa_license_status` value stays `active`; Pro will appear unlocked until the license is re-verified (or the option is reset manually).
 
-## Proje yapısı
+## Project structure
 
 ```
 woo-whatsapp.php              Ana eklenti dosyası, tablo kurulumu, varsayılan ayarlar
@@ -125,15 +125,15 @@ documentation/index.html      İngilizce kurulum kılavuzu
 readme.txt, kurulum.txt       WordPress.org / dağıtım metinleri
 ```
 
-## Bilinen farklar (readme.txt ve kurulum.txt ile kod arasında)
+## Known discrepancies (between readme.txt / kurulum.txt and the code)
 
-- `readme.txt` ve `kurulum.txt` **360dialog** desteğinden bahseder, ancak API katmanında 360dialog uygulanmamıştır; yalnızca Meta, Twilio, Ultramsg ve WATI vardır.
-- `kurulum.txt` İngilizce yer tutucular (`{customer_name}`, `{order_number}` vb.) listeler; kodda kullanılan yer tutucular Türkçedir (`{müşteri_adı}`, `{sipariş_no}` vb.).
-- `readme.txt` değişiklik günlüğünde geçen "mesaj kuyruğu sistemi" kodda bulunmuyor.
-- `readme.txt` sepet kurtarma mesajına kupon eklenebileceğini söyler; sepet kurtarma modülünde kupon desteği yok (kupon oluşturma yalnızca Flow Builder eylemi olarak mevcut).
-- "PDF dışa aktarma" gerçek PDF değil, yazdırılabilir HTML üretir.
-- `src/App.js` içindeki demo anahtarı ipucu kaldırıldı, ancak derlenmiş `build/` (ve `woo-whatsapp.zip`) yeniden derlenene kadar eski metni içerir.
+- `readme.txt` and `kurulum.txt` mention **360dialog** support, but 360dialog is not implemented in the API layer; only Meta, Twilio, Ultramsg and WATI exist.
+- `kurulum.txt` lists English placeholders (`{customer_name}`, `{order_number}`, etc.); the placeholders used in the code are Turkish (`{müşteri_adı}`, `{sipariş_no}`, etc.).
+- The "mesaj kuyruğu sistemi" ("message queue system") mentioned in the `readme.txt` changelog does not exist in the code.
+- `readme.txt` says a coupon can be added to the cart recovery message; the cart recovery module has no coupon support (coupon creation is only available as a Flow Builder action).
+- "PDF export" doesn't produce a real PDF; it produces printable HTML.
+- The demo key hint in `src/App.js` has been removed, but the compiled `build/` (and `woo-whatsapp.zip`) still contain the old text until rebuilt.
 
-## Lisans
+## License
 
-Eklenti başlığı ve `package.json` GPL-2.0-or-later belirtir. Depoda ayrı bir LICENSE dosyası yoktur.
+The plugin header and `package.json` specify GPL-2.0-or-later. There is no separate LICENSE file in the repo.
